@@ -7,8 +7,8 @@ android {
         applicationId "com.msl.utaastu"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 11
-        versionName "2.1.0"
+        versionCode 1 //12
+        versionName "debugging" //"2.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
