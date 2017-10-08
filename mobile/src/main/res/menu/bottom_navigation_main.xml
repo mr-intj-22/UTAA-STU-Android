@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/course_table"
+        android:icon="@drawable/ic_course_table"
+        android:title="@string/course_table"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/service_times"
+        android:icon="@drawable/ic_bus_table"
+        android:title="@string/service_times"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/food_table"
+        android:icon="@drawable/ic_food_table"
+        android:title="@string/food_table"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/gpa_calc"
+        android:icon="@drawable/ic_gpa_calculator"
+        android:title="@string/gpa_calc"
+        app:showAsAction="ifRoom" />
+</menu>

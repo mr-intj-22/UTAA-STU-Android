@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/calculation_result"
+        android:icon="@drawable/ic_gpa_calculator_result"
+        android:title="@string/calculate_result"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/save"
+        android:icon="@drawable/ic_save"
+        android:title="@string/save"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/add_semester"
+        android:icon="@drawable/ic_add"
+        android:title="@string/add_semester"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/add_temp"
+        android:title="@string/add_temp"
+        app:showAsAction="never" />
+</menu>

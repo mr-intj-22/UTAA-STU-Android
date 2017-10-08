@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/general_preferences_category">
+
+        <PreferenceScreen
+            android:key="profile-dialog"
+            android:summary="@string/profile_preferences_summary"
+            android:title="@string/profile_preferences_title" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="auto-silence"
+            android:summary="@string/silence_preferences_summary"
+            android:title="@string/silence_preferences_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/notifications_preferences_category">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="general-notifications"
+            android:summary="@string/general_notifications_preferences_summary"
+            android:title="@string/general_notifications_preferences_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notifications-topics"
+        android:title="@string/notifications_topics_preferences_category" />
+
+</PreferenceScreen>

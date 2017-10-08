@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/sc_service"
+        android:shortcutDisabledMessage="@string/service_times"
+        android:shortcutId="service_times"
+        android:shortcutLongLabel="@string/service_times"
+        android:shortcutShortLabel="@string/service_times">
+        <intent
+            android:action="android.intent.action.SERVICE_TIMES"
+            android:targetClass="com.msl.utaastu.Activities.MainActivity"
+            android:targetPackage="com.msl.utaastu" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.service.times" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/sc_food"
+        android:shortcutDisabledMessage="@string/food_table"
+        android:shortcutId="food"
+        android:shortcutLongLabel="@string/food_table"
+        android:shortcutShortLabel="@string/food_table">
+        <intent
+            android:action="android.intent.action.FOOD_TABLE"
+            android:targetClass="com.msl.utaastu.Activities.MainActivity"
+            android:targetPackage="com.msl.utaastu" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.food.table" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/sc_gpa"
+        android:shortcutDisabledMessage="@string/gpa_calc"
+        android:shortcutId="gpa"
+        android:shortcutLongLabel="@string/gpa_calc"
+        android:shortcutShortLabel="@string/gpa_calc">
+        <intent
+            android:action="android.intent.action.GPA_CALCULATIONS"
+            android:targetClass="com.msl.utaastu.Activities.MainActivity"
+            android:targetPackage="com.msl.utaastu" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.gpa.calculations" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

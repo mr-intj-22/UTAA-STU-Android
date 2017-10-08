@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item>Social Groups</item>
+        <item>Studying Materials</item>
+        <item>Exam Table</item>
+        <item>Academic Calendar</item>
+        <item>UTAA Contacts</item>
+        <item />
+        <item>Notifications</item>
+        <item>About</item>
+        <item>Settings</item>
+        <item />
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_social_groups</item>
+        <item>@drawable/ic_studying_materials</item>
+        <item>@drawable/ic_course_table</item>
+        <item>@drawable/ic_calendar</item>
+        <item>@drawable/ic_utaa_contacts</item>
+        <item>0</item>
+        <item>@drawable/ic_notifications</item>
+        <item>@drawable/ic_about</item>
+        <item>@drawable/ic_settings</item>
+        <item />
+    </array>
+
+    <string-array name="grade_letters">
+        <item>AA</item>
+        <item>BA</item>
+        <item>BB</item>
+        <item>CB</item>
+        <item>CC</item>
+        <item>DC</item>
+        <item>DD</item>
+        <item>FF</item>
+    </string-array>
+
+    <string-array name="credits">
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="grade_values">
+        <item>4.0</item>
+        <item>3.5</item>
+        <item>3.0</item>
+        <item>2.5</item>
+        <item>2.0</item>
+        <item>1.5</item>
+        <item>1.0</item>
+        <item>0.0</item>
+    </string-array>
+
+</resources>

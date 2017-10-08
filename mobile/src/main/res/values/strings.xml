@@ -1,0 +1,213 @@
+<resources>
+    <!--Titles-->
+    <string name="app_name">UTAA STU</string>
+
+    <!--GPS-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+    AIzaSyB2fabKNdLGK2eYlIkfqb2vq8onn9zYRig</string>
+
+    <!--Ads-->
+    <string name="ad_unit">ca-app-pub-9686023226291831/9966654167</string>
+    <string name="ads_app_id">ca-app-pub-9686023226291831~8883235841</string>
+
+    <!--Intro-->
+    <string name="st_title">App\'s Features</string>
+    <string name="st_desc">Enough with the data loss and screenshots. The app provides plenty of features that you will like.\nKeep going to discover more …</string>
+    <string name="sec_title">Course Schedule</string>
+    <string name="sec_desc">Don\'t memorize your schedule?\nno problem, it will always be in your bucket.</string>
+    <string name="rd_title">Bus Schedule</string>
+    <string name="rd_desc">Want to get a ride by the school transportation service but you don\'t know the exact time or location? It has never been easier than this.</string>
+    <string name="th4_title">GPA Calculator</string>
+    <string name="th4_desc">You want to boost your gpa but don\'t know how? Now it\'s possible to calculate all the scenarios you want.</string>
+    <string name="th5_title">Food Table</string>
+    <string name="th5_desc">Now it\'s possible to check the food schedule whenever you want.</string>
+    <string name="th6_title">Social Groups</string>
+    <string name="th6_desc">Now it\'s possible to find people who share the same hobbies with you.</string>
+    <string name="th7_title">Permissions</string>
+    <string name="th7_desc">Permissions are required for the app to function. Please grant the asked permissions.</string>
+    <string name="th6_button">grant permissions</string>
+    <!--Signing-->
+    <string name="signIn_welcome">Welcome</string>
+    <string name="signIn_email">Email</string>
+    <string name="signIn_pass">Password</string>
+    <string name="forgot_password">forgot password? click to reset.</string>
+    <string name="fill_in">please fill in the required fields</string>
+    <string name="wait">please wait …</string>
+    <string name="registration_complete">registered successfully</string>
+    <string name="password_weak">password is weak, please make it stronger</string>
+    <string name="password_no_match">passwords don\'t match</string>
+    <string name="password_title">Conform Password</string>
+    <string name="password_dismiss">dismiss</string>
+    <string name="password_hint">password</string>
+    <string name="not_signed">please sign in / register</string>
+    <string name="error_registering">oops! couldn\'t register your account</string>
+    <string name="sign_in_complete">signed in successfully, welcome</string>
+    <string name="error_sign_in">oops! couldn\'t sign in</string>
+    <string name="try_again">try again</string>
+    <string name="already_registered">this user is already registered</string>
+    <string name="not_registered">this user is not registered</string>
+    <string name="sign_in">sign in</string>
+    <string name="sign_up">sign up</string>
+    <string name="register">register</string>
+    <string name="reset_pass">reset password</string>
+    <string name="invalid_email">invalid email</string>
+    <string name="wrong_info">wrong email or password</string>
+    <string name="request_blocked">requests are blocked, try again later</string>
+    <string name="reset_email_sent">password-reset email sent successfully</string>
+    <string name="reset_email_error">error sending password-reset email</string>
+    <string name="check_connection">please check your internet connection</string>
+
+    <!--bottom bar items-->
+    <string name="course_table">Course Table</string>
+    <string name="course_table_edit">Edit Course Table</string>
+    <string name="service_times">Service Times</string>
+    <string name="food_table">Food Table</string>
+    <string name="gpa_calc">GPA Calculator</string>
+    <string name="gpa_calc_temp">GPA Calculator - TEMP</string>
+
+    <!--profile-->
+    <string name="username">Username:</string>
+    <string name="email">Email:</string>
+    <string name="department">Department:</string>
+    <string name="birthday">Birth date:</string>
+    <string name="phone">Phone:</string>
+    <string name="note">Note: the information provided will be saved safely.</string>
+    <string name="birthday_hint">DD/MM/YYYY</string>
+    <string name="phone_hint">+90 5XX XXXXXXX</string>
+    <string name="no_image_picked">no image picked</string>
+    <string name="selectDepartment">Select Department</string>
+
+    <!--course-->
+    <string name="course_section">Section</string>
+    <string name="course_name">Subject</string>
+    <string name="course_code">Code</string>
+    <string name="course_place">Place</string>
+    <string name="course_time">Start / End</string>
+    <string name="add_button">add</string>
+    <string name="start_button">pick start time</string>
+    <string name="end_button">pick end time</string>
+    <string name="min_50_mins">the lecture should be at least 50 minutes long</string>
+    <string name="save_changes">save changes</string>
+    <string name="discard_changes">discard</string>
+    <string name="unsaved_work">Unsaved work</string>
+    <string name="changes_warning">consider saving the changes you made</string>
+    <string name="edit_schedule">edit schedule</string>
+    <string name="share_schedule">share schedule</string>
+    <string name="choose_app">Choose an app</string>
+    <string name="nothing_to_share">your schedule is empty.</string>
+    <string name="permissions_granted">permissions granted</string>
+    <string name="course_empty">your schedule is empty</string>
+    <string name="item_removed">item removed</string>
+    <string name="undo">undo</string>
+
+    <!--calculator-->
+    <string name="course_name_header">COURSE</string>
+    <string name="course_grade_header">GRADE</string>
+    <string name="course_credits_header">CREDITS</string>
+    <string name="add_semester">add semester</string>
+    <string name="calculate_result">result</string>
+    <string name="add_temp">temporary calculations</string>
+    <string name="add_normal">general calculations</string>
+    <string name="save">save</string>
+    <string name="gpa_increase">↑ %.2f from previous semester</string>
+    <string name="gpa_decrease">↓ %.2f from previous semester</string>
+    <string name="total_gpa">total gpa</string>
+    <string name="last_semester_grade">last semester\'s average: %.2f</string>
+
+    <!--pdf text extraction-->
+    <string name="extracted_successfully">schedule extracted successfully</string>
+    <string name="was_not_extracted">extraction failed</string>
+    <string name="not_supported">not supported yet</string>
+
+    <!--Exam timetable-->
+    <string name="exam_code">Code</string>
+    <string name="exam_date">Date</string>
+    <string name="exam_time">Time</string>
+    <string name="exam_place">Place</string>
+    <string name="exam_elective">Elective</string>
+    <string name="pick_date">pick date</string>
+    <string name="editable">you can modify the exam info</string>
+    <string name="not_editable">you <u>cannot</u> modify the exam info</string>
+    <string name="no_courses">No courses were found</string>
+
+    <!--About-->
+    <string name="full_name">Abdulmalek S. A. Shefat</string>
+    <string name="subtitle">Mobile Developer</string>
+    <string name="brief">A man who\'s passionate about technology and engineering</string>
+    <string name="playstore_id">5176031617929948149</string>
+    <string name="playstore_publisher">MSL dev</string>
+    <string name="github_id">AbdulmalekShefat</string>
+    <string name="feedback_email">abdulmalek.s.a.shefat@gmail.com</string>
+    <string name="facebook_id">https://www.facebook.com/Malek.shffat</string>
+    <string name="twitter_id">malek_shffat</string>
+    <string name="linkedin_id">abdulmalek-shefat-b23979a7</string>
+    <string name="instagram_id">abdulmalek.s.a.shefat</string>
+    <string name="whatsapp">+90 551 126 6119</string>
+
+    <!--Social Group-->
+    <string name="social_groups">Social Groups</string>
+    <string name="group_name">Name</string>
+    <string name="group_desc">Description</string>
+    <string name="group_langs">Languages</string>
+    <string name="group_link">Link</string>
+    <string name="invalid_link">invalid link</string>
+    <string name="remove_group">remove</string>
+    <string name="add_group">add group</string>
+    <string name="link_hint">http://www.facebook.com/groups/group_id</string>
+    <string name="social_groups_add">Add Social Group</string>
+    <string name="empty_field">this field cannot be empty</string>
+    <string name="report_group">report</string>
+    <string name="langs_hint">english, turkish</string>
+
+    <!--Studying Materials-->
+    <string name="studying_materials">Studying Materials</string>
+    <string name="g_drive_link_hint">https://drive.google.com/open?id=FILE-ID</string>
+    <string name="item_title">Title</string>
+    <string name="add_materials">add materials</string>
+    <string name="name_used">name is already in use</string>
+    <string name="share">share</string>
+
+    <!--Service Times-->
+    <string name="service_from">From:</string>
+    <string name="service_to">To:</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="general_preferences_category">General</string>
+    <string name="profile_preferences_title">Profile</string>
+    <string name="profile_preferences_summary">view and edit your profile.</string>
+    <string name="silence_preferences_title">Auto-Silence</string>
+    <string name="silence_preferences_summary">silence the phone automatically during lectures</string>
+    <string name="notifications_preferences_category">Notifications</string>
+    <string name="general_notifications_preferences_summary">general purpose notifications</string>
+    <string name="general_notifications_preferences_title">General</string>
+    <string name="notifications_topics_preferences_category">Subscriptions</string>
+
+    <!--Food table related-->
+    <string name="food_header">%1$s (%2$s)</string>
+    <string name="meal_copied">meal name copied to clipboard</string>
+
+    <!--Notifications-->
+    <string name="notifications">Notifications</string>
+
+    <!--Academic Calendar-->
+    <string name="academic_calendar">Academic Calendar</string>
+    <string name="download_file">Download File</string>
+    <string name="calendar_extracted_successfully">calendar extracted successfully</string>
+    <string name="file_exists">file already downloaded</string>
+
+    <!--UTAA Contact-->
+    <string name="contacts">Contacts</string>
+    <string name="report">Report entry</string>
+    <string name="content_copied">content copied to clipboard</string>
+    <string name="update_pdf">new academic schedule available</string>
+    <string name="all_field_required">all fields are required</string>
+    <string name="choose_department">Please choose your department</string>
+
+    <!--Tips-->
+    <string name="pick_schedule_pdf">Download your schedule as a pdf file from the system, and the app will read and fetch the data automatically.</string>
+    <string name="pick_gpa_pdf">Download your transcript as a pdf file from the system, and the app will read and fetch the data automatically.</string>
+    <string name="follow_bus_schedule">Check the service times easily.</string>
+    <string name="user_data_uploaded">uploaded</string>
+
+</resources>

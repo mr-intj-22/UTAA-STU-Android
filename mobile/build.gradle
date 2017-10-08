@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.msl.utaastu"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 11
+        versionName "2.1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// REQUIRED: Google's new Maven repo is required for the latest
+// support library that is compatible with Android O
+repositories {
+    maven {
+        url 'https://maven.google.com'
+    }
+    maven { url "https://jitpack.io" }
+}
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+            // Alternative URL is 'https://dl.google.com/dl/android/maven2/'
+        }
+
+        maven { url "https://jitpack.io" }
+    }
+}
+
+ext {
+    supportLib = '26.0.0'
+    gms = '11.4.2'
+    firebase = '11.4.2'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //  ConstraintLayout
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //  noinspection GradleCompatible
+    //  support Lib
+    compile "com.android.support:appcompat-v7:${supportLib}"
+    compile "com.android.support:cardview-v7:${supportLib}"
+    compile "com.android.support:recyclerview-v7:${supportLib}"
+    compile "com.android.support:support-vector-drawable:${supportLib}"
+    compile "com.android.support:design:${supportLib}"
+    // firebase libs
+    compile "com.google.firebase:firebase-core:${firebase}"
+    compile "com.google.firebase:firebase-database:${firebase}"
+    compile "com.google.firebase:firebase-storage:${firebase}"
+    compile "com.google.firebase:firebase-crash:${firebase}"
+    compile "com.google.firebase:firebase-auth:${firebase}"
+    compile "com.google.firebase:firebase-messaging:${firebase}"
+    compile "com.google.firebase:firebase-ads:${firebase}"
+    //  GMS
+    compile "com.google.android.gms:play-services-maps:${gms}"
+    // external libs
+    compile 'agency.tango.android:material-intro-screen:0.0.5'
+    compile 'com.yarolegovich:sliding-root-nav:1.0.2'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.itextpdf:itextg:5.5.10'
+    compile 'com.github.jrvansuita:MaterialAbout:0.1.7'
+    compile 'com.github.faruktoptas:FancyShowCaseView:0.1.7'
+    //  wear
+    wearApp project(':wear')
+    compile "com.google.android.gms:play-services-wearable:${gms}"
+
+    testCompile 'junit:junit:4.12'
+}
+apply plugin: 'com.google.gms.google-services'
