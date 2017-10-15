@@ -49,6 +49,7 @@ public class FirebaseConstants {
 
     //  Notifications
     public static final String NOTIFICATIONS_KEY = "notifications";
+    public static final String NOTIFICATIONS_ITEMS = "items";
     public static final String GENERAL_KEY = "general";
 
     //  Contacts

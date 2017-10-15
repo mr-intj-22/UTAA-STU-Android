@@ -353,12 +353,18 @@ public class ProfileDialog extends DialogFragment implements View.OnClickListene
         if (TextUtils.isEmpty(username.getText())) {
             username.setError(getString(R.string.fill_in));
             return false;
-        } else if (TextUtils.isEmpty(birthday.getText())) {
+        }
+        if (TextUtils.isEmpty(birthday.getText())) {
             birthday.setError(getString(R.string.fill_in));
             return false;
 
-        } else if (TextUtils.isEmpty(phone.getText())) {
+        }
+        if (TextUtils.isEmpty(phone.getText())) {
             phone.setError(getString(R.string.fill_in));
+            return false;
+        }
+        if (data.indexOf(department) == 0) {
+            Toast.makeText(getContext(), R.string.choose_department, Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

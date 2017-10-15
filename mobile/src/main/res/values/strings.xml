@@ -62,8 +62,8 @@
     <string name="course_table_edit">Edit Course Table</string>
     <string name="service_times">Service Times</string>
     <string name="food_table">Food Table</string>
-    <string name="gpa_calc">GPA Calculator</string>
-    <string name="gpa_calc_temp">GPA Calculator - TEMP</string>
+    <string name="gpa_calc">GPA - BETA</string>
+    <string name="gpa_calc_temp">GPA - TEMP</string>
 
     <!--profile-->
     <string name="username">Username:</string>
@@ -209,5 +209,8 @@
     <string name="pick_gpa_pdf">Download your transcript as a pdf file from the system, and the app will read and fetch the data automatically.</string>
     <string name="follow_bus_schedule">Check the service times easily.</string>
     <string name="user_data_uploaded">uploaded</string>
+    <string name="disable_battery_optimization">For \'Auto Silence\' to work, you need to disable battery optimization for this app.</string>
+    <string name="auto_silence">Auto Silence</string>
+    <string name="gpa_aploaded">Done!</string>
 
 </resources>

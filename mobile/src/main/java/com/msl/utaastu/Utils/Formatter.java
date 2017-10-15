@@ -36,9 +36,11 @@ public class Formatter {
             if (dDays == 1) {
                 formatted_date = "a day ago";
             } else if (dDays < 7) {
+                formatted_date = dDays + " days ago";
+            } else if ((int) Math.round(dDays / 7.0) == 1) {
                 formatted_date = "a week ago";
             } else {
-                formatted_date = (dDays / 7) + " weeks ago";
+                formatted_date = ((int) Math.round(dDays / 7.0)) + " weeks ago";
             }
         } else if (yYears == 0 && mMonths > 0) {
             if (mMonths == 1) {

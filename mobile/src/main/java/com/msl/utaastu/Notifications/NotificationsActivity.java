@@ -26,6 +26,7 @@ import com.msl.utaastu.R;
 import java.util.ArrayList;
 
 import static com.msl.utaastu.Firebase.FirebaseConstants.GENERAL_KEY;
+import static com.msl.utaastu.Firebase.FirebaseConstants.NOTIFICATIONS_ITEMS;
 import static com.msl.utaastu.Firebase.FirebaseConstants.NOTIFICATIONS_KEY;
 
 /**
@@ -57,7 +58,7 @@ public class NotificationsActivity extends AppCompatActivity implements ValueEve
                 //if (key.equals("from"))
             }
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -65,15 +66,15 @@ public class NotificationsActivity extends AppCompatActivity implements ValueEve
             actionBar.setHomeButtonEnabled(true);
         }
 
-        notifications = database.getReference(NOTIFICATIONS_KEY);
+        notifications = database.getReference(NOTIFICATIONS_KEY).child(NOTIFICATIONS_ITEMS);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setAutoMeasureEnabled(true);
         recyclerView.setLayoutManager(manager);
         adapter = new NotificationsAdapter(this);
         adapter.setListener(this);
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        progressBar = findViewById(R.id.progressbar);
         empty = findViewById(R.id.emptyView);
 
         notifications.addListenerForSingleValueEvent(this);
@@ -92,15 +93,7 @@ public class NotificationsActivity extends AppCompatActivity implements ValueEve
     }
 
     private void getData(DataSnapshot dataSnapshot) {
-        if (dataSnapshot.child(user.getUid()).exists()){
-            NotificationItem item = dataSnapshot.child(user.getUid()).getValue(NotificationItem.class);
-            if (item != null) {
-                Log.d("UTAA-3", item.getTitle());
-                item.setMine(true);
-            }
-            notificationItems.add(item);
-        }
-        for (DataSnapshot notification : dataSnapshot.child(GENERAL_KEY).getChildren()) {    // get the days one by one
+        for (DataSnapshot notification : dataSnapshot.getChildren()) {    // get the days one by one
             NotificationItem item = notification.getValue(NotificationItem.class);
             notificationItems.add(item);
         }

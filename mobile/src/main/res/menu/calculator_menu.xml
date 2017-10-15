@@ -5,7 +5,7 @@
         android:id="@+id/calculation_result"
         android:icon="@drawable/ic_gpa_calculator_result"
         android:title="@string/calculate_result"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/save"
         android:icon="@drawable/ic_save"

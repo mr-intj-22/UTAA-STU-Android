@@ -221,6 +221,7 @@ public class GPACalculatorFragment extends Fragment implements OnBackPressedList
         progressDialog.hide();
         adapter.setEdited(false);
         ((MainActivity) getActivity()).setOnBackPressedListener(null);
+        Toast.makeText(getContext(), R.string.gpa_aploaded, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -287,6 +288,7 @@ public class GPACalculatorFragment extends Fragment implements OnBackPressedList
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
+                    if (getActivity() == null) return;
                     getActivity().setTitle(newTitle);
 
                     AlphaAnimation fadeIn = new AlphaAnimation(0f, 1f);

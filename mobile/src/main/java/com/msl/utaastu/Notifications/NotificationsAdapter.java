@@ -8,6 +8,8 @@ import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.method.MovementMethod;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +25,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by Malek Shefat on 7/14/2017.
@@ -40,7 +43,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
     private boolean[] cards;
     private ClickListener listener;
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
     public NotificationsAdapter(Context context) {
         this.context = context;
@@ -64,7 +67,6 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
         notificationHolder.title.setText(data.get(position).getTitle());
         notificationHolder.body.setText(Html.fromHtml(data.get(position).getBody(), null, new UlTagHandler()));
         notificationHolder.topic.setText(data.get(position).getTopic());
-        notificationHolder.menu_icon.setVisibility(data.get(position).isMine() ? View.VISIBLE : View.GONE);
         try {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(sdf.parse(data.get(position).getDate()));
@@ -89,6 +91,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
             super(itemView);
             title = itemView.findViewById(R.id.title);
             body = itemView.findViewById(R.id.body);
+            body.setMovementMethod(LinkMovementMethod.getInstance());
             topic = itemView.findViewById(R.id.topic);
             time = itemView.findViewById(R.id.time);
             cardView = itemView.findViewById(R.id.cardView);

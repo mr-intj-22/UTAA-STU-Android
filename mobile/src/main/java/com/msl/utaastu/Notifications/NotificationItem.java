@@ -10,7 +10,6 @@ import android.support.annotation.Keep;
 class NotificationItem {
 
     private String title, body, topic, date;
-    private boolean mine = false;
 
     public String getTitle() {
         return title;
@@ -44,11 +43,4 @@ class NotificationItem {
         this.date = date;
     }
 
-    public void setMine(boolean mine) {
-        this.mine = mine;
-    }
-
-    public boolean isMine() {
-        return mine;
-    }
 }
