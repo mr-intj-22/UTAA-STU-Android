@@ -105,7 +105,7 @@ public class ScheduleFragment extends Fragment implements ValueEventListener, Vi
                 if (!MyApplication.getWritableCoursesDatabase().isExist(course_id))
                     MyApplication.getWritableCoursesDatabase().addString(course_id);
                 TimeItem timeItem = new TimeItem().setDay(dayItem.getDay()).setTime(course_time);
-                if (MyApplication.getWritableLecturesTimesDatabase().isExist(timeItem))
+                if (!MyApplication.getWritableLecturesTimesDatabase().isExist(timeItem))
                     MyApplication.getWritableLecturesTimesDatabase().addItem(timeItem);
                 items++;
             }

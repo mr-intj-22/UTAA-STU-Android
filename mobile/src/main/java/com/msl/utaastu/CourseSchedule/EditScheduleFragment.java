@@ -323,8 +323,9 @@ public class EditScheduleFragment extends Fragment implements EditScheduleAdapte
                 String course_time = lecturesList.get(j + prev).getTime();
                 if (!getWritableCoursesDatabase().isExist(course_id))
                     getWritableCoursesDatabase().addString(course_id);
-                if (!TextUtils.isEmpty(course_time))
-                    getWritableLecturesTimesDatabase().addItem(new TimeItem().setDay(days.get(i).getDay()).setTime(course_time));
+                TimeItem timeItem = new TimeItem().setDay(days.get(i).getDay()).setTime(course_time);
+                if (!TextUtils.isEmpty(course_time) && !getWritableLecturesTimesDatabase().isExist(timeItem))
+                    getWritableLecturesTimesDatabase().addItem(timeItem);
             }
             prev += days.get(i).getLectures();
         }

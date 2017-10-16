@@ -40,7 +40,7 @@ public class AboutHelper {
         FrameLayout flHolder = activity.findViewById(R.id.about);
 
         AboutBuilder builder = AboutBuilder.with(activity)
-                .setAppIcon(R.drawable.utaa_icon)
+                .setAppIcon(R.mipmap.ic_circle)
                 .setAppName(R.string.app_name)
                 .setPhoto(R.mipmap.mslprofile)
                 .setCover(R.mipmap.mslcover)
@@ -65,7 +65,7 @@ public class AboutHelper {
                 .addShareAction(R.string.app_name)
                 .addFeedbackAction(R.string.feedback_email)
                 .setWrapScrollView(true)
-                .setShowAsCard(true);
+                .setShowAsCard(false);
 
 
         AboutView view = builder.build();

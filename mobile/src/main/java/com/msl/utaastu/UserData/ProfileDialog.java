@@ -253,8 +253,6 @@ public class ProfileDialog extends DialogFragment implements View.OnClickListene
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
-
                         if (getActivity() instanceof MainActivity)
                             ((MainActivity) getActivity()).setProfileData(username.getText().toString());
                         updateUserData(task.isSuccessful());
@@ -307,6 +305,8 @@ public class ProfileDialog extends DialogFragment implements View.OnClickListene
                     int selection = data.indexOf(department);
                     spinner.setSelection(selection);
                     image = userData.getPhoto();
+                } else {
+                    userData = new UserData();
                 }
                 if (MyApplication.getProfileImage() != null) {
                     imageView.setImageBitmap(MyApplication.getProfileImage());

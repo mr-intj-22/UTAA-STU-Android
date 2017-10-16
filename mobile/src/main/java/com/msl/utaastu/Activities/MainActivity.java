@@ -2,6 +2,7 @@ package com.msl.utaastu.Activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.net.Uri;
@@ -18,11 +19,13 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -30,6 +33,7 @@ import android.view.animation.Animation;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.utils.FileUtils;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,6 +43,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.msl.utaastu.AcademicCalendar.AcademicCalendarActivity;
 import com.msl.utaastu.Application.MyApplication;
 import com.msl.utaastu.BusSchedule.BusFragment;
@@ -64,6 +69,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import com.yarolegovich.slidingrootnav.callback.DragListener;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import static com.msl.utaastu.Firebase.FirebaseConstants.DEPARTMENTS_NODE;
@@ -318,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             startActivity(new Intent(this, Intro.class));
         } else {
             getDepartments();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (MyApplication.isAlarmSet() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestIgnoreButteryOptimization();
             }
         }
@@ -452,16 +458,36 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         });
     }
 
+    // request disable battery optimization
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestIgnoreButteryOptimization() {
         String packageName = getPackageName();
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         if (!pm.isIgnoringBatteryOptimizations(packageName)) {
-            Intent intent = new Intent(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).setData(Uri.parse("package:" + packageName));
-            try {
-                startActivity(intent);
-            } catch (ActivityNotFoundException ignored) {
-            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.auto_silence)
+                    .setMessage(R.string.disable_battery_optimization)
+                    .setPositiveButton(R.string.yes, dialogClickListener)
+                    .setNegativeButton(R.string.no, dialogClickListener).show();
         }
     }
+
+    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int choice) {
+            switch (choice) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    String packageName = getPackageName();
+                    Intent intent = new Intent(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).setData(Uri.parse("package:" + packageName));
+                    try {
+                        startActivity(intent);
+                    } catch (ActivityNotFoundException ignored) {
+                    }
+                    break;
+                case DialogInterface.BUTTON_NEGATIVE:
+                    break;
+            }
+        }
+    };
 }

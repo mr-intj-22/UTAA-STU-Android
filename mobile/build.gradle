@@ -5,10 +5,10 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.msl.utaastu"
-        minSdkVersion 21
+        minSdkVersion 17
         targetSdkVersion 26
-        versionCode 12
-        versionName "2.2.0"
+        versionCode 13
+        versionName "2.3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }

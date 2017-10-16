@@ -221,7 +221,7 @@ public class GPACalculatorFragment extends Fragment implements OnBackPressedList
         progressDialog.hide();
         adapter.setEdited(false);
         ((MainActivity) getActivity()).setOnBackPressedListener(null);
-        Toast.makeText(getContext(), R.string.gpa_aploaded, Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), R.string.gpa_uploaded, Toast.LENGTH_LONG).show();
     }
 
     @Override

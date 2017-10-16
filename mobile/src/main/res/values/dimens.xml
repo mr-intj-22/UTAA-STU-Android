@@ -3,5 +3,6 @@
 
     <dimen name="card_elevation">0dp</dimen>
     <dimen name="shadow_height">4dp</dimen>
+    <dimen name="status_bar_height">0dp</dimen>
 
 </resources>
