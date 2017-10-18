@@ -37,6 +37,7 @@
     <string name="password_weak">password is weak, please make it stronger</string>
     <string name="password_no_match">passwords don\'t match</string>
     <string name="password_title">Conform Password</string>
+    <string name="reset_password_title">Reset Password</string>
     <string name="password_dismiss">dismiss</string>
     <string name="password_hint">password</string>
     <string name="not_signed">please sign in / register</string>

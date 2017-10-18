@@ -22,4 +22,10 @@ public class Validator {
         Matcher m = p.matcher(url.toLowerCase());
         return m.matches();
     }
+
+    public static boolean isValidEmail(String email) {
+        Pattern p = Patterns.EMAIL_ADDRESS;
+        Matcher m = p.matcher(email.toLowerCase());
+        return m.matches();
+    }
 }

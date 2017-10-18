@@ -1,5 +1,6 @@
 package com.msl.utaastu.Intro;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;

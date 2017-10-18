@@ -35,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.msl.utaastu.Activities.MainActivity;
 import com.msl.utaastu.Application.MyApplication;
+import com.msl.utaastu.Intro.Intro;
 import com.msl.utaastu.R;
 import com.vansuita.materialabout.views.CircleImageView;
 
@@ -78,6 +79,9 @@ public class ProfileDialog extends DialogFragment implements View.OnClickListene
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
+        if (getActivity() instanceof Intro) {
+            userData = new UserData();
+        }
     }
 
     @Nullable

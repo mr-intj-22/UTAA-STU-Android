@@ -9,7 +9,7 @@ import android.support.annotation.Keep;
 @Keep
 class NotificationItem {
 
-    private String title, body, topic, date;
+    private String title, body, topic, date, link;
 
     public String getTitle() {
         return title;
@@ -24,6 +24,7 @@ class NotificationItem {
     }
 
     public void setBody(String body) {
+        body = body.replaceAll("<img .*?</img>","\n*Missing Image");
         this.body = body;
     }
 
@@ -43,4 +44,11 @@ class NotificationItem {
         this.date = date;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

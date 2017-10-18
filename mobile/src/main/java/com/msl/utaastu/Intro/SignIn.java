@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,6 +41,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.msl.utaastu.Application.MyApplication;
 import com.msl.utaastu.R;
 import com.msl.utaastu.UserData.ProfileDialog;
+import com.msl.utaastu.Utils.Validator;
 
 import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.SlideFragment;
@@ -70,9 +72,11 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
 
         auth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setCanceledOnTouchOutside(false);
         email = root.findViewById(R.id.email);
         pass = root.findViewById(R.id.pass);
         TextView forgot_pass = root.findViewById(R.id.forgot_password);
+        forgot_pass.setMovementMethod(null);
         forgot_pass.setOnClickListener(this);
         sign_in_button = root.findViewById(R.id.signIn);
         sign_in_button.setOnClickListener(this);
@@ -90,7 +94,7 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.forgot_password:
-                resetPassword();
+                resetPasswordDialog();
                 break;
             case R.id.signIn:
                 if (TextUtils.isEmpty(email.getText()) || TextUtils.isEmpty(pass.getText())) {
@@ -169,6 +173,8 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
                             getDepartments();
                         } else {
                             setButtonsEnabled(true);
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
                             try {
                                 throw task.getException();
                             } catch (FirebaseAuthInvalidCredentialsException e) {   //wrong email or pass
@@ -176,7 +182,8 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
                                         .setAction(R.string.reset_pass, new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                resetPassword();
+                                                if (email != null && !TextUtils.isEmpty(email.getText().toString()))
+                                                    resetPassword(email.getText().toString());
                                             }
                                         }).show();
                             } catch (FirebaseAuthInvalidUserException e) {  //user not registered
@@ -193,35 +200,32 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
                                 Snackbar.make(email, R.string.error_sign_in, LENGTH_LONG).show();
                             }
                         }
-                        progressDialog.hide();
                     }
                 });
     }
 
-    private void resetPassword() {
-        setButtonsEnabled(false);
+    private void resetPassword(final String email_text) {
         progressDialog.setMessage(getString(R.string.wait));
         progressDialog.show();
-        FirebaseAuth.getInstance().sendPasswordResetEmail(email.getText().toString())
+        FirebaseAuth.getInstance().sendPasswordResetEmail(email_text)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Snackbar.make(email, R.string.reset_email_sent, LENGTH_SHORT).show();
-                            setButtonsEnabled(true);
                         } else {
                             Snackbar.make(email, R.string.reset_email_error, LENGTH_SHORT)
                                     .setAction(R.string.try_again, new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            resetPassword();
+                                            resetPassword(email_text);
                                         }
                                     })
                                     .show();
                         }
+                        progressDialog.hide();
                     }
                 });
-        progressDialog.hide();
     }
 
     private void reenterPassword() {
@@ -241,6 +245,38 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
                     register();
                 } else {
                     Toast.makeText(getActivity(), R.string.password_no_match, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        dialogBuilder.setNegativeButton(R.string.discard_changes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
+            }
+        });
+        dialogBuilder.create().show();
+
+    }
+
+    private void resetPasswordDialog() {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialog_password, null);
+        dialogBuilder.setView(dialogView);
+
+        final AppCompatEditText editText = dialogView.findViewById(R.id.pass_conform);
+
+        editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        editText.setHint(R.string.signIn_email);
+
+        dialogBuilder.setTitle(R.string.reset_password_title);
+        dialogBuilder.setPositiveButton(R.string.reset_pass, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+                if (Validator.isValidEmail(editText.getText().toString())) {
+                    resetPassword(editText.getText().toString());
+                } else {
+                    Toast.makeText(getActivity(), R.string.invalid_email, Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -321,7 +357,10 @@ public class SignIn extends SlideFragment implements View.OnClickListener {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
             }
+
         });
     }
 }

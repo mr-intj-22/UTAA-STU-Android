@@ -23,7 +23,13 @@ import com.msl.utaastu.Activities.MainActivity;
 import com.msl.utaastu.Application.MyApplication;
 import com.msl.utaastu.R;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 
 import static com.msl.utaastu.Firebase.FirebaseConstants.GENERAL_KEY;
 import static com.msl.utaastu.Firebase.FirebaseConstants.NOTIFICATIONS_ITEMS;
@@ -97,6 +103,18 @@ public class NotificationsActivity extends AppCompatActivity implements ValueEve
             NotificationItem item = notification.getValue(NotificationItem.class);
             notificationItems.add(item);
         }
+        Collections.sort(notificationItems, new Comparator<NotificationItem>() {
+            DateFormat f = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+
+            @Override
+            public int compare(NotificationItem lhs, NotificationItem rhs) {
+                try {
+                    return f.parse(rhs.getDate()).compareTo(f.parse(lhs.getDate()));
+                } catch (ParseException e) {
+                    throw new IllegalArgumentException(e);
+                }
+            }
+        });
     }
 
     @Override

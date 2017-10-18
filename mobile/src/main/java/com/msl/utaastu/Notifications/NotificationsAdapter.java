@@ -2,6 +2,8 @@ package com.msl.utaastu.Notifications;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
@@ -21,6 +23,8 @@ import com.msl.utaastu.R;
 import com.msl.utaastu.Utils.Formatter;
 import com.msl.utaastu.Utils.UlTagHandler;
 
+import java.net.URI;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -105,7 +109,10 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
             switch (v.getId()) {
                 case R.id.cardView:
                     if (cards[getAdapterPosition()]) {
-                        collapse((CardView) v, body, getAdapterPosition());
+                        if (!TextUtils.isEmpty(data.get(getAdapterPosition()).getLink()))
+                            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(data.get(getAdapterPosition()).getLink())));
+                        else
+                            collapse((CardView) v, body, getAdapterPosition());
                     } else if (pos < cards.length) {
                         collapse(card, bodyText, pos);
                         new Handler().postDelayed(new Runnable() {

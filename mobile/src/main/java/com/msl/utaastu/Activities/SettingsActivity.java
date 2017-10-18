@@ -159,7 +159,7 @@ public class SettingsActivity extends AppCompatActivity {
         private void addDepartmentCheckBoxes(PreferenceCategory category) {
             for (int i = 0; i < departments.size() && i < department_notifications.length; i++) {
                 CheckBoxPreference checkBoxPref = new CheckBoxPreference(getActivity());
-                checkBoxPref.setDefaultValue(false);
+                checkBoxPref.setDefaultValue(departments.get(i).equalsIgnoreCase(MyApplication.readDepartment()));
                 checkBoxPref.setTitle(departments.get(i));
                 checkBoxPref.setKey(departments.get(i));
                 checkBoxPref.setOnPreferenceChangeListener(this);
