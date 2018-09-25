@@ -15,9 +15,9 @@ An Application made for the students of UTAA
 
 ## Screenshots
 
-| Home  | Schedule | Service Times  | Food | GPA Calculator |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/1.png  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+Login Screen             |  Schedule Screen           |  Service Times Screen           |  GPA Screen           |  Side Menu Screen
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/1.png)  | ![](https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/2.png)  | ![](https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/3.png)  | ![](https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/4.png)  | ![](https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/5.png)  |
 
 ## Features to be added:
 
