@@ -17,7 +17,7 @@ An Application made for the students of UTAA
 
 | Home  | Schedule | Service Times  | Food | GPA Calculator |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| https://github.com/AbdulmalekShefat/UTAA-STU-Android-MAC/blob/master/screenshots/1.webp  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ## Features to be added:
 
