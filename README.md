@@ -15,9 +15,8 @@ An Application made for the students of UTAA
 
 ## Screenshots
 
-| First Header  | Second Header | First Header  | Second Header | Second Header |
+| Home  | Schedule | Service Times  | Food | GPA Calculator |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 ## Features to be added:
