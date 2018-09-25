@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "com.msl.utaastu"
         minSdkVersion 17
-        targetSdkVersion 26
-        versionCode 14
-        versionName "2.4.0"
+        targetSdkVersion 28
+        versionCode 15
+        versionName "2.5.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -42,52 +42,63 @@ allprojects {
             url "https://maven.google.com"
             // Alternative URL is 'https://dl.google.com/dl/android/maven2/'
         }
-
         maven { url "https://jitpack.io" }
     }
 }
 
 ext {
-    supportLib = '26.0.0'
-    gms = '11.4.2'
-    firebase = '11.4.2'
+    supportLib = '28.0.0'
+    gms = '15.0.1'
+    firebase = '16.0.2'
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //  ConstraintLayout
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //noinspection GradleDependency
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     //  noinspection GradleCompatible
     //  support Lib
-    compile "com.android.support:appcompat-v7:${supportLib}"
-    compile "com.android.support:cardview-v7:${supportLib}"
-    compile "com.android.support:recyclerview-v7:${supportLib}"
-    compile "com.android.support:support-vector-drawable:${supportLib}"
-    compile "com.android.support:design:${supportLib}"
+    implementation "com.android.support:appcompat-v7:${supportLib}"
+    implementation "com.android.support:cardview-v7:${supportLib}"
+    implementation "com.android.support:recyclerview-v7:${supportLib}"
+    implementation "com.android.support:support-vector-drawable:${supportLib}"
+    implementation "com.android.support:design:${supportLib}"
     // firebase libs
-    compile "com.google.firebase:firebase-core:${firebase}"
-    compile "com.google.firebase:firebase-database:${firebase}"
-    compile "com.google.firebase:firebase-storage:${firebase}"
-    compile "com.google.firebase:firebase-crash:${firebase}"
-    compile "com.google.firebase:firebase-auth:${firebase}"
-    compile "com.google.firebase:firebase-messaging:${firebase}"
-    compile "com.google.firebase:firebase-ads:${firebase}"
+    implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-database:16.0.2'
+    implementation 'com.google.firebase:firebase-storage:16.0.2'
+    implementation 'com.google.firebase:firebase-crash:16.2.0'
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
+    implementation 'com.google.firebase:firebase-messaging:17.3.2'
+    implementation "com.google.firebase:firebase-ads:${gms}"
     //  GMS
-    compile "com.google.android.gms:play-services-maps:${gms}"
+    implementation "com.google.android.gms:play-services-maps:${gms}"
     // external libs
-    compile 'agency.tango.android:material-intro-screen:0.0.5'
-    compile 'com.yarolegovich:sliding-root-nav:1.0.2'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    compile 'com.itextpdf:itextg:5.5.10'
-    compile 'com.github.jrvansuita:MaterialAbout:0.1.7'
-    compile 'com.github.faruktoptas:FancyShowCaseView:0.1.7'
+    implementation 'agency.tango.android:material-intro-screen:0.0.5'
+    implementation 'com.yarolegovich:sliding-root-nav:1.0.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation 'com.github.jrvansuita:MaterialAbout:0.1.7'
+    implementation 'com.github.faruktoptas:FancyShowCaseView:0.1.7'
     //  wear
     wearApp project(':wear')
-    compile "com.google.android.gms:play-services-wearable:${gms}"
+    implementation "com.google.android.gms:play-services-wearable:${gms}"
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}
